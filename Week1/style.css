@@ -1,0 +1,38 @@
+body {
+  font-family: "Noto Sans", sans-serif;
+  background-color: #eeeee1;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  vertical-align: top;
+}
+
+td {
+  padding-left: 15px;
+}
+
+#head-title {
+  text-align: start;
+  padding-left: 15px;
+}
+
+#head-img {
+  width: 25%;
+  text-align: center;
+}
+
+#title {
+  font-weight: bold;
+  width: 25%;
+}
