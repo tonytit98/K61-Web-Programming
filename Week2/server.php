@@ -16,9 +16,8 @@ if (isset($_POST['reg_user'])) {
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $phonenumber = mysqli_real_escape_string($db, $_POST['phonenumber']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
-  $hobby1 = mysqli_real_escape_string($db, $_POST['hobby1']);
-  $hobby2 = mysqli_real_escape_string($db, $_POST['hobby2']);
-  $hobby3 = mysqli_real_escape_string($db, $_POST['hobby3']);
+  $sex = mysqli_real_escape_string($db, $_POST['sex']);
+  $hobbies = mysqli_real_escape_string($db, implode(", ", $_POST['hobbies']));
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error into $errors array
@@ -42,10 +41,11 @@ if (isset($_POST['reg_user'])) {
   }
 
   // Finally, register user if there are no errors in the form
-  $query = "INSERT INTO `users`(`firstname`, `lastname`,`email`,`phonenumber`,`password`) VALUES ('$firstname', '$lastname','$email','$phonenumber','$password')";
+  $query = "INSERT INTO `users`(`firstname`, `lastname`,`email`,`phonenumber`,`password`,`sex`,`hobbies`)
+  VALUES ('$firstname', '$lastname','$email','$phonenumber','$password','$sex','$hobbies')";
   $result = mysqli_query($db, $query);
   if (!$result) {
     printf("Error: %s\n", mysqli_error($db));
     exit();
-  } else header('location: test.php');
+  } else header('location: result.php');
 }
